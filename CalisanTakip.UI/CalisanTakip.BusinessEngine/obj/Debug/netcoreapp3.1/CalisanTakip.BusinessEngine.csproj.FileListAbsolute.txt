@@ -1,0 +1,10 @@
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.deps.json
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.pdb
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.csproj.AssemblyReference.cache
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.AssemblyInfoInputs.cache
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.AssemblyInfo.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.csproj.CoreCompileInputs.cache
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.pdb
