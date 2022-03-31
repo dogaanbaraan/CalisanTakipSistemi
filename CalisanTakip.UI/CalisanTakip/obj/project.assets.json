@@ -1803,6 +1803,21 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "CalisanTakip.BusinessEngine/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "CalisanTakip.Common": "1.0.0",
+          "CalisanTakip.DataAccess": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CalisanTakip.BusinessEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CalisanTakip.BusinessEngine.dll": {}
+        }
+      },
       "CalisanTakip.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6434,6 +6449,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "CalisanTakip.BusinessEngine/1.0.0": {
+      "type": "project",
+      "path": "../CalisanTakip.BusinessEngine/CalisanTakip.BusinessEngine.csproj",
+      "msbuildProject": "../CalisanTakip.BusinessEngine/CalisanTakip.BusinessEngine.csproj"
+    },
     "CalisanTakip.Common/1.0.0": {
       "type": "project",
       "path": "../CalisanTakip.Common/CalisanTakip.Common.csproj",
@@ -6447,6 +6467,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CalisanTakip.BusinessEngine >= 1.0.0",
       "CalisanTakip.Common >= 1.0.0",
       "CalisanTakip.DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 3.1.22",
@@ -6487,6 +6508,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Users\\baran.dogan\\Desktop\\Çalışmalarım\\Projeler\\CalisanTakip\\CalisanTakip.UI\\CalisanTakip.BusinessEngine\\CalisanTakip.BusinessEngine.csproj": {
+              "projectPath": "C:\\Users\\baran.dogan\\Desktop\\Çalışmalarım\\Projeler\\CalisanTakip\\CalisanTakip.UI\\CalisanTakip.BusinessEngine\\CalisanTakip.BusinessEngine.csproj"
+            },
             "C:\\Users\\baran.dogan\\Desktop\\Çalışmalarım\\Projeler\\CalisanTakip\\CalisanTakip.UI\\CalisanTakip.Common\\CalisanTakip.Common.csproj": {
               "projectPath": "C:\\Users\\baran.dogan\\Desktop\\Çalışmalarım\\Projeler\\CalisanTakip\\CalisanTakip.UI\\CalisanTakip.Common\\CalisanTakip.Common.csproj"
             },

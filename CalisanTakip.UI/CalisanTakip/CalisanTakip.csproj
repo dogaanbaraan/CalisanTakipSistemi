@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CalisanTakip.BusinessEngine\CalisanTakip.BusinessEngine.csproj" />
     <ProjectReference Include="..\CalisanTakip.Common\CalisanTakip.Common.csproj" />
     <ProjectReference Include="..\CalisanTakip.DataAccess\CalisanTakip.DataAccess.csproj" />
   </ItemGroup>

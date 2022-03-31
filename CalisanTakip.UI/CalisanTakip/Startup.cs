@@ -1,3 +1,5 @@
+using CalisanTakip.BusinessEngine.Contracts;
+using CalisanTakip.BusinessEngine.Implementation;
 using CalisanTakip.Common.Mappings;
 using CalisanTakip.DataAccess.Contracts;
 using CalisanTakip.DataAccess.DbContext;
@@ -31,9 +33,13 @@ namespace CalisanTakip
             services.AddRazorPages().AddRazorRuntimeCompilation();
             services.AddDbContext<CalisanTakipContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddAutoMapper(typeof(Mapper));
-            services.AddScoped<IEmployeeLeaveAllocation, EmployeeLeaveAllocationRepository>();
-            services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
-            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            //services.AddScoped<IEmployeeLeaveAllocation, EmployeeLeaveAllocationRepository>();
+            //services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
+            //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +65,9 @@ namespace CalisanTakip
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

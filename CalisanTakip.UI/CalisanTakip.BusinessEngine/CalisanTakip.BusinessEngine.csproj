@@ -8,4 +8,9 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CalisanTakip.Common\CalisanTakip.Common.csproj" />
+    <ProjectReference Include="..\CalisanTakip.DataAccess\CalisanTakip.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>
