@@ -12,7 +12,7 @@ namespace CalisanTakip.Common.ViewModels
         public string  DefaultDays { get;  set; }
         public DateTime DateCreated { get;  set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
         public void SetEmployeeType(string name)
         {
             this.Name = name;

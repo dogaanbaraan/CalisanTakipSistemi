@@ -39,7 +39,7 @@
                                     <td>@item.DateCreated</td>
                                     <td>
                                         <div class="hidden-sm hidden-xs btn-group">
-                                            <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveType" asp-route-id="@item.Id" asp-action="Edit">
+                                            <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveType" asp-route-id="@item.Id" asp-action="Edit" >
                                                 <i class="ace-icon fa fa-pencil bigger-120"></i>
                                             </a>
 
@@ -83,11 +83,11 @@
                 success : function(data){
                     if(data.success){
                         toastr.success(data.message);
-                        location.reload();
+                        
                     }else{
                         toastr.error(data.message);
                     }
-
+                    location.reload();
             }
             });
          }

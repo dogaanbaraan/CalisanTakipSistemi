@@ -88,9 +88,13 @@ namespace CalisanTakip.Controllers
             if (data.IsSuccess)
             {
                 return Json(new { success = data.IsSuccess, message = data.Message });
+
             }
             else
+            {
                 return Json(new { success = data.IsSuccess, message = data.Message });
+            }
+
             //}
         }
     }
