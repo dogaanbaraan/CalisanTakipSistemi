@@ -30,7 +30,7 @@ namespace CalisanTakip.DataAccess.Implementation
             return _dbSet.Find(id);    
         }
 
-        public IQueryable GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null)
         {
             IQueryable<T> query = _dbSet;
             if(filter != null)

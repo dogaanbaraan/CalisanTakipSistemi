@@ -108,6 +108,9 @@ namespace CalisanTakip.DataAccess.Migrations
                     b.Property<string>("DefaultDays")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 

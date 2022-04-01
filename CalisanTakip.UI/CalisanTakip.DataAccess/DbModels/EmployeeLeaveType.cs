@@ -9,5 +9,6 @@ namespace CalisanTakip.DataAccess.DbModels
         public string  Name { get; set; }
         public string DefaultDays { get; set; }
         public DateTime DateCreated { get; set; }
+        public bool IsActive { get; set; }
     }
 }

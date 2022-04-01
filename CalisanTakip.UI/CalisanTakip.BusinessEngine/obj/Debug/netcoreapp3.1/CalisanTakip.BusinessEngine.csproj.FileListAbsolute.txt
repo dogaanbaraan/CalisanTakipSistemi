@@ -8,3 +8,8 @@ C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.csproj.CoreCompileInputs.cache
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.dll
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.pdb
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.Common.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.Common.pdb
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.pdb
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.BusinessEngine\obj\Debug\netcoreapp3.1\CalisanTakip.BusinessEngine.csproj.CopyComplete

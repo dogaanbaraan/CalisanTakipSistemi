@@ -1,0 +1,44 @@
+﻿@model CalisanTakip.Common.ViewModels.EmployeeLeaveTypeVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- PAGE CONTENT BEGINS -->
+<div>
+    <br /><br />
+<form class="form-horizontal"asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" asp-for="Name" for="form-field-1">İzin Tipi</label>
+
+        <div class="col-sm-9">
+            <input type="text" asp-for="Name" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+            <span asp-validation-for="Name"></span>        
+        </div>
+    </div>
+         <div class="form-group">
+        <label class="col-sm-3 control-label no-padding-right" asp-for="DefaultDays" for="form-field-1">İzin Süresi</label>
+
+        <div class="col-sm-9">
+            <input type="number" min="0" max="15" asp-for="DefaultDays" id="form-field-1" placeholder="Sabit Gün Sayısı" class="col-xs-10 col-sm-5" />
+            <span asp-validation-for="DefaultDays"></span>        
+        </div>
+    </div>
+    <div class="clearfix form-actions">
+                      <div class="col-md-offset-3 col-md-9">
+            @*  <button class="btn btn-info" type="button">
+            <i class="ace-icon fa fa-check bigger-110"></i>
+            Submit
+            </button>*@
+                    <input type="submit" value="Create" class="btn btn-info col-xs-3" />
+            </div>
+
+    </div>
+</form>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

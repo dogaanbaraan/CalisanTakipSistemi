@@ -8,10 +8,11 @@ namespace CalisanTakip.Common.ViewModels
     public class EmployeeLeaveTypeVM : BaseVM
     {
         [Required]
-         public string Name { get;protected set; }
-        public string  DefaultDays { get; protected set; }
-        public DateTime DateCreated { get; protected set; }
+         public string Name { get; set; }
+        public string  DefaultDays { get;  set; }
+        public DateTime DateCreated { get;  set; }
 
+        public bool IsActive { get; set; }
         public void SetEmployeeType(string name)
         {
             this.Name = name;
