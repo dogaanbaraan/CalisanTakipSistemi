@@ -15,12 +15,13 @@ namespace CalisanTakip.DataAccess.Implementation
             employeeLeaveAllocation = new EmployeeLeaveAllocationRepository(_ctx);
             employeeLeaveRequest = new EmployeeLeaveRequestRepository(_ctx);
             employeeLeaveType = new EmployeeLeaveTypeRepository(_ctx);
+            employeeRepository = new EmployeeRepository(_ctx);
         }
 
         public IEmployeeLeaveAllocation employeeLeaveAllocation { get; private set; }
         public IEmployeeLeaveRequestRepository employeeLeaveRequest { get; private set; }
         public IEmployeeLeaveTypeRepository employeeLeaveType { get; private set; }
-
+        public IEmployeeRepository employeeRepository { get; private set; }
         public void Dispose()
         {
             _ctx.Dispose();
