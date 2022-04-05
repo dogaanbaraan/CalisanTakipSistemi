@@ -8,7 +8,7 @@ namespace CalisanTakip.Common.ViewModels
     public class EmployeeLeaveRequestVM : BaseVM
     {
         public int EmployeeLeaveTypeId { get; set; }
-
+        public string LeaveTypeText { get; set; }
         public EmployeeLeaveTypeVM EmployeeLeaveType { get; set; }
 
         public string ApprovedEmployeeId { get; set; }

@@ -17,6 +17,7 @@ using CalisanTakip.DataAccess.Contracts;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using CalisanTakip.DataAccess.DbModels;
+using CalisanTakip.Common.ConstantsModel;
 
 namespace CalisanTakip.Areas.Identity.Pages.Account
 {
@@ -91,19 +92,33 @@ namespace CalisanTakip.Areas.Identity.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
-                    var user = _userManager.FindByNameAsync(Input.Email);
-                    //var user = _uow.employeeRepository.GetFirstOfDefault(u => u.Email == Input.Email);
-                    if (user != null)
-                    {
-                        var sessionContext = new SessionContext();
-                        sessionContext.Email = user.Result.Email;
-                        sessionContext.FirstName = user.Result.NormalizedEmail;
-  
-                        sessionContext.LoginId = user.Result.Id;
-                        HttpContext.Session.SetString("AppUserSession", JsonConvert.SerializeObject(sessionContext));
-                    }
+                    #region 1.yöntem
+                    //var user = _userManager.FindByNameAsync(Input.Email);
+                    ////var user = _uow.employeeRepository.GetFirstOfDefault(u => u.Email == Input.Email);
+                    //if (user != null)
+                    //{
+                    //    var sessionContext = new SessionContext();
+                    //    sessionContext.Email = user.Result.Email;
+                    //    sessionContext.FirstName = user.Result.NormalizedEmail;
 
+                    //    sessionContext.LoginId = user.Result.Id;
+                    //    HttpContext.Session.SetString("AppUserSession", JsonConvert.SerializeObject(sessionContext));
+                    //}
+                    #endregion
+                    var user = _uow.employeeRepository.GetFirstOfDefault(u=>u.Email == Input.Email);
+                    var userInfo = new SessionContext()
+                    {
+
+                        Email = user.Email,
+                        FirstName = user.FirstName,
+                        IsAdmin = false,
+                        LastName = user.LastName,
+                        LoginId = user.Id
+
+                    };
+
+                    HttpContext.Session.SetString(ResultConstant.LoginUserInfo, JsonConvert.SerializeObject(userInfo));
+                    _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

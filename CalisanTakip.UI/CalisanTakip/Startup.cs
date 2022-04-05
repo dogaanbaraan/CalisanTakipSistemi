@@ -41,10 +41,14 @@ namespace CalisanTakip
             //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
+            services.AddScoped<IEmployeeLeaveRequestBusinessEngine, EmployeeLeaveRequestBusinessEngine>();
             services.AddDefaultIdentity<Employee>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CalisanTakipContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); 
             services.AddRazorPages();
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(3600);
+            });
             services.AddMvc();  
            
 

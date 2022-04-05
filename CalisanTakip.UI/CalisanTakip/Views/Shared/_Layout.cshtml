@@ -1,8 +1,8 @@
 ﻿@using CalisanTakip.Common.ConstantsModel
 @using CalisanTakip.DataAccess.DbModels
-    @using Microsoft.AspNetCore.Identity
-    @inject SignInManager<Employee> SignInManager
-    @inject UserManager<Employee> UserManager
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +60,7 @@
             </button>
 
             <div class="navbar-header pull-left">
-                <a href="index.html" class="navbar-brand">
+                <a asp-controller="Home" class="navbar-brand">
                     <small>
                         <i class="fa fa-leaf"></i>
                         Çalışan İzin Takip Sistemi
@@ -139,7 +139,17 @@
 
                             <b class="arrow"></b>
                         </li>
+
                     }
+                    <li class="">
+                        <a asp-controller="EmployeeLeaveRequest" asp-action="Index">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Çalışan İzin Talebi
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+
                 }
 
                 @*                 <li class="">
@@ -201,7 +211,7 @@
     </div><!-- /.main-container -->
     <!-- basic scripts -->
     <!--[if !IE]> -->
-    <script src="~/js/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- <![endif]-->
@@ -217,13 +227,14 @@
     <!--[if lte IE 8]>
       <script src="~/js/excanvas.min.js"></script>
     <![endif]-->
+    <script src="~/js/moment.min.js"></script>
     <script src="~/js/jquery-ui.custom.min.js"></script>
     <script src="~/js/jquery.ui.touch-punch.min.js"></script>
     <script src="~/js/jquery.easypiechart.min.js"></script>
     <script src="~/js/jquery.sparkline.index.min.js"></script>
-    <script src="~/js/jquery.flot.min.js"></script>
-    <script src="~/js/jquery.flot.pie.min.js"></script>
-    <script src="~/js/jquery.flot.resize.min.js"></script>
+    <script src="~/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+
 
     <!-- ace scripts -->
     <script src="~/js/ace-elements.min.js"></script>
