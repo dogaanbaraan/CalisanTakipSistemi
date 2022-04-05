@@ -1,5 +1,6 @@
 using CalisanTakip.BusinessEngine.Contracts;
 using CalisanTakip.BusinessEngine.Implementation;
+using CalisanTakip.Common.ConstantsModel;
 using CalisanTakip.Common.Mappings;
 using CalisanTakip.DataAccess.Contracts;
 using CalisanTakip.DataAccess.DbContext;
@@ -28,11 +29,11 @@ namespace CalisanTakip
         }
 
         public IConfiguration Configuration { get; }
-
+         
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
             services.AddDbContext<CalisanTakipContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddAutoMapper(typeof(Mapper));
             //services.AddScoped<IEmployeeLeaveAllocation, EmployeeLeaveAllocationRepository>();
@@ -40,15 +41,18 @@ namespace CalisanTakip
             //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
-            services.AddControllersWithViews();
+            services.AddDefaultIdentity<Employee>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CalisanTakipContext>();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation(); 
             services.AddRazorPages();
-            services.AddSession(); 
+            services.AddSession();
+            services.AddMvc();  
+           
 
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<CalisanTakipContext>();
+            //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<CalisanTakipContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<Employee> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -61,9 +65,10 @@ namespace CalisanTakip
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            SeedData.Seed(userManager, roleManager);
             app.UseAuthentication();
             app.UseRouting();
             app.UseSession();

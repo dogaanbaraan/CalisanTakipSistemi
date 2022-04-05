@@ -13,6 +13,7 @@ namespace CalisanTakip.DataAccess.Implementation
 
         public EmployeeRepository(CalisanTakipContext ctx) : base(ctx)
         {
+            _ctx = ctx;
         }
     }
 }

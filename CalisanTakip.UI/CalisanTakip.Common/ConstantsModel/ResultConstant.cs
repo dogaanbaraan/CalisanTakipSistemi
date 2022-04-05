@@ -14,5 +14,9 @@ namespace CalisanTakip.Common.ConstantsModel
         public const string UpdateNotOk =  "Güncelleme işlemi başarısız" ;
         public const string DeleteOk = "Silme İşlemi tamamlandı";
         public const string DeleteNotOk = "Silme işlemi başarısız";
+        public const string Admin_Role = "Administrator";
+        public const string Employee_Role = "Employee";
+        public const string Admin_Email = "barno@gmail.com";
+        public const string Admin_Password = "Barno.123";
     }
 }

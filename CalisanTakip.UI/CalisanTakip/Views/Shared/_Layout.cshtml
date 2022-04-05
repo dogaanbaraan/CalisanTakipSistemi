@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using CalisanTakip.Common.ConstantsModel
+@using CalisanTakip.DataAccess.DbModels
+    @using Microsoft.AspNetCore.Identity
+    @inject SignInManager<Employee> SignInManager
+    @inject UserManager<Employee> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -121,14 +127,21 @@
 
             <ul class="nav nav-list">
 
-                <li class="">
-                    <a asp-controller="EmployeeLeaveType" asp-action="Index">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Çalışan İzin Tipi
-                    </a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    if (User.IsInRole(ResultConstant.Admin_Role))
+                    {
+                        <li class="">
+                            <a asp-controller="EmployeeLeaveType" asp-action="Index">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Çalışan İzin Tipi
+                            </a>
 
-                    <b class="arrow"></b>
-                </li>
+                            <b class="arrow"></b>
+                        </li>
+                    }
+                }
+
                 @*                 <li class="">
                     <a asp-area="Identity" asp-page="/Account/Login">
                     <span class="text-info">Login</span>

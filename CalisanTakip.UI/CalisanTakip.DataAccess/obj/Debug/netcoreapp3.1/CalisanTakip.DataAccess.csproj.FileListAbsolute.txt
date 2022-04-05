@@ -1,4 +1,6 @@
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.deps.json
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.runtimeconfig.json
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.runtimeconfig.dev.json
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.dll
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.pdb
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\obj\Debug\netcoreapp3.1\CalisanTakip.DataAccess.csproj.AssemblyReference.cache
@@ -8,6 +10,4 @@ C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\obj\Debug\netcoreapp3.1\CalisanTakip.DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\obj\Debug\netcoreapp3.1\CalisanTakip.DataAccess.dll
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\obj\Debug\netcoreapp3.1\CalisanTakip.DataAccess.pdb
-C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.runtimeconfig.json
-C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\bin\Debug\netcoreapp3.1\CalisanTakip.DataAccess.runtimeconfig.dev.json
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip.DataAccess\obj\Debug\netcoreapp3.1\CalisanTakip.DataAccess.genruntimeconfig.cache

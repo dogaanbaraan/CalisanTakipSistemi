@@ -1,9 +1,12 @@
 ﻿using CalisanTakip.BusinessEngine.Contracts;
+using CalisanTakip.Common.ConstantsModel;
 using CalisanTakip.Common.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CalisanTakip.Controllers
 {
+    [Authorize(Roles = ResultConstant.Admin_Role)]
     public class EmployeeLeaveTypeController : Controller
     {
         private readonly IEmployeeLeaveTypeBusinessEngine _employeeLeaveTypeBusinessEngine;

@@ -16,20 +16,21 @@ using CalisanTakip.DataAccess.Implementation;
 using CalisanTakip.DataAccess.Contracts;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using CalisanTakip.DataAccess.DbModels;
 
 namespace CalisanTakip.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<Employee> _userManager;
+        private readonly SignInManager<Employee> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly IUnitOfWork _uow;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager,
+        public LoginModel(SignInManager<Employee> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> userManager,
             IUnitOfWork uow)
         {
             _userManager = userManager;
