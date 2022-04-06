@@ -1,6 +1,7 @@
 ﻿using CalisanTakip.BusinessEngine.Contracts;
 using CalisanTakip.Common.ConstantsModel;
 using CalisanTakip.Common.SessionOperations;
+using CalisanTakip.Common.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -44,6 +45,29 @@ namespace CalisanTakip.Controllers
             //    Value = q.Id.ToString(),
             //});
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(EmployeeLeaveRequestVM model)
+        {
+                var user = JsonConvert.DeserializeObject<SessionContext>(HttpContext.Session.GetString(ResultConstant.LoginUserInfo));
+                if (model.Id > 0)
+                {
+                    //var data = _employeeLeaveRequestBusinessEngine.EditEmployeeLeaveRequest(model);
+                }
+                else
+                {
+                    var data = _employeeLeaveRequestBusinessEngine.CreateEmployeeLeaveRequest(model, user);
+
+                    if (data.IsSuccess)
+                    {
+                        return RedirectToAction("Index");
+                    }
+
+                    return View(model);
+                }
+
+
+            return View(model);
         }
     }
 }

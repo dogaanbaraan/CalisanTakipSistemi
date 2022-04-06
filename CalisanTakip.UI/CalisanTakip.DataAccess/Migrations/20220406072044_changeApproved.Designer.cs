@@ -4,14 +4,16 @@ using CalisanTakip.DataAccess.DbContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CalisanTakip.DataAccess.Migrations
 {
     [DbContext(typeof(CalisanTakipContext))]
-    partial class CalisanTakipContextModelSnapshot : ModelSnapshot
+    [Migration("20220406072044_changeApproved")]
+    partial class changeApproved
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

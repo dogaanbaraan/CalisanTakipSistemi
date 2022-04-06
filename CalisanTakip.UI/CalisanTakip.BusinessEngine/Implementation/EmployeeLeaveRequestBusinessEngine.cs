@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using CalisanTakip.BusinessEngine.Contracts;
 using CalisanTakip.Common.ConstantsModel;
+using CalisanTakip.Common.Extentsion;
 using CalisanTakip.Common.ResultModels;
+using CalisanTakip.Common.SessionOperations;
 using CalisanTakip.Common.ViewModels;
 using CalisanTakip.DataAccess.Contracts;
 using CalisanTakip.DataAccess.DbModels;
@@ -23,6 +25,32 @@ namespace CalisanTakip.BusinessEngine.Implementation
             _mapper = mapper;
         }
 
+        public Result<EmployeeLeaveRequestVM> CreateEmployeeLeaveRequest(EmployeeLeaveRequestVM model, SessionContext user)
+        {
+            if (model != null)
+            {
+                try
+                {
+                    var leaveRequest = _mapper.Map<EmployeeLeaveRequestVM, EmployeeLeaveRequest>(model);
+                    leaveRequest.RequestingEmployeeId = user.LoginId;
+                    leaveRequest.Cancelled = false;
+                    leaveRequest.DateRequested = DateTime.Now;
+                    leaveRequest.Approved = (int)EnumEmployeeLeaveRequestStatus.Send_Approved;
+                    _uow.employeeLeaveRequest.Add(leaveRequest);
+                    _uow.Save();
+
+                    return new Result<EmployeeLeaveRequestVM>(true, ResultConstant.AddedOk);
+                }
+                catch (Exception e)
+                {
+
+                    return new Result<EmployeeLeaveRequestVM>(false, ResultConstant.AddedNotOk + "=>" + e.Message.ToString());
+                }
+            }
+            else
+                return new Result<EmployeeLeaveRequestVM>(false, "Model bulunamadı");
+        }
+
         public Result<List<EmployeeLeaveRequestVM>> GetAllLeaveRequestByUserId(string userId)
         {
             #region 1.yöntem
@@ -41,7 +69,8 @@ namespace CalisanTakip.BusinessEngine.Implementation
                     result.Add(new EmployeeLeaveRequestVM()
                     {
                         Id = item.Id,
-                        Approved = item.Approved,
+                        ApprovedStatus = (EnumEmployeeLeaveRequestStatus)item.Approved,
+                        ApprovedText = EnumExtentsion<EnumEmployeeLeaveRequestStatus>.GetDisplayValue((EnumEmployeeLeaveRequestStatus)item.Approved),
                         Cancelled = item.Cancelled,
                         ApprovedEmployeeId = item.ApprovedEmployeeId,
                         DateRequested = item.DateRequested,
