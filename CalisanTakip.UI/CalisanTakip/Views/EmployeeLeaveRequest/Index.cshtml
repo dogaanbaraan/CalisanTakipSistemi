@@ -33,44 +33,44 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>@item.StartDate.ToShortDateString()</td>
-                                    <td>@item.EndDate.ToShortDateString()</td>
-                                    <td>@item.LeaveTypeText</td>
-                                    @if(item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Send_Approved)
+                                    <tr>
+                                        <td>@item.StartDate.ToShortDateString()</td>
+                                        <td>@item.EndDate.ToShortDateString()</td>
+                                        <td>@item.LeaveTypeText</td>
+                                    @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Send_Approved)
                                     {
-                                            <td style="color:blue">@item.ApprovedText</td>
+                                                    <td style="color:blue">@item.ApprovedText</td>
                                     }
-                                     @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Approved)
+                                    @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Approved)
                                     {
-                                            <td style="color:green">@item.ApprovedText</td>
+                                                    <td style="color:green">@item.ApprovedText</td>
                                     }
-                                     @if(item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Rejected)
+                                    @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Rejected)
                                     {
-                                            <td style="color:red">@item.ApprovedText</td>
+                                                    <td style="color:red">@item.ApprovedText</td>
                                     }
                                     @if (item.ApprovedStatus != EnumEmployeeLeaveRequestStatus.Approved)
                                     {
-                                        <td>
-                                            <div class="hidden-sm hidden-xs btn-group">
-                                                <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveType" asp-route-id="@item.Id" asp-action="Edit">
-                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
-                                                </a>
+                                                <td>
+                                                    <div class="hidden-sm hidden-xs btn-group">
+                                                        <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveRequest" asp-route-id="@item.Id" asp-action="Edit">
+                                                            <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                        </a>
 
                                                 @*  <button class="btn btn-xs btn-danger">
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                     </button>*@
-                                                <a class="btn btn-xs btn-danger" onclick="removeItem(@item.Id)" data-id="@item.Id">
-                                                    <i class="ace-icon fa fa-trash bigger-120"></i>
-                                                </a>
+                                                        <a class="btn btn-xs btn-danger" onclick="removeItem(@item.Id)" data-id="@item.Id">
+                                                            <i class="ace-icon fa fa-trash bigger-120"></i>
+                                                        </a>
 
-                                                <button class="btn btn-xs btn-warning">
-                                                    <i class="ace-icon fa fa-flag bigger-120"></i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                                        <button class="btn btn-xs btn-warning">
+                                                            <i class="ace-icon fa fa-flag bigger-120"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
                                     }
-                                </tr>
+                                    </tr>
                             }
                         </tbody>
                     </table>
@@ -80,3 +80,37 @@
         </div>
     </div>
 </div>
+@section Scripts{
+<script type="text/javascript">
+    function removeItem(rowId){
+        swal({
+            title:'Silmek istediğinize emin misiniz?',
+            text:'Silinen veri geri alınamaz',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true
+        }).then((willDelete) =>{
+            if(willDelete){
+            $.ajax({
+                type:"DELETE",
+                url:"/EmployeeLeaveRequest/Delete/" + rowId,
+                success : function(data){
+                    if(data.success){
+                        toastr.success(data.message);
+
+                    }else{
+                        toastr.error(data.message);
+                    }
+                    location.reload();
+            }
+            });
+         }
+        });
+    }
+
+     //$(document).ready(function (){
+    //$("#btnRemove").on("click", function () {
+    //    var id = $("#btnRemove").data("id");
+
+</script>
+}

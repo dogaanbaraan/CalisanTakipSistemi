@@ -51,41 +51,100 @@ namespace CalisanTakip.BusinessEngine.Implementation
                 return new Result<EmployeeLeaveRequestVM>(false, "Model bulunamadı");
         }
 
-        public Result<List<EmployeeLeaveRequestVM>> GetAllLeaveRequestByUserId(string userId)
+        public Result<EmployeeLeaveRequestVM> EditEmployeeLeaveRequest(EmployeeLeaveRequestVM model, SessionContext user)
         {
-            #region 1.yöntem
+            if (model != null)
+            {
+                try
+                {
+                    var leaveRequest = _mapper.Map<EmployeeLeaveRequestVM, EmployeeLeaveRequest>(model);
+                    leaveRequest.Approved = (int)model.ApprovedStatus;
+                    leaveRequest.RequestingEmployeeId = user.LoginId;
+                    _uow.employeeLeaveRequest.Update(leaveRequest);
+                    _uow.Save();
 
-            //var data = _uow.employeeLeaveRequest.GetAll(u => u.RequestingEmployeeId == userId).ToList();
+                    return new Result<EmployeeLeaveRequestVM>(true, ResultConstant.UpdateOk);
+                }
+                catch (Exception e)
+                {
 
-            //var leaveTypes = _mapper.Map<List<EmployeeLeaveRequest>, List<EmployeeLeaveRequestVM>>(data);
-            //return new Result<EmployeeLeaveRequestVM>(true, ResultConstant.RecordFound);
-            #endregion"
-            var data = _uow.employeeLeaveRequest.GetAll(u => u.RequestingEmployeeId == userId, includeProperties: "EmployeeLeaveType,RequestingEmployee").ToList();
+                    return new Result<EmployeeLeaveRequestVM>(false, ResultConstant.UpdateNotOk + "=>" + e.Message.ToString());
+                }
+
+            }
+
+            else
+                return new Result<EmployeeLeaveRequestVM>(false, "Güncelleme işlemi yapılamadı");
+        }
+
+        public Result<EmployeeLeaveRequestVM> GetAllLeaveRequestById(int id)
+        {
+            var data = _uow.employeeLeaveRequest.Get(id);
             if (data != null)
             {
-                List<EmployeeLeaveRequestVM> result = new List<EmployeeLeaveRequestVM>();
+                var leaveRequest = _mapper.Map<EmployeeLeaveRequest, EmployeeLeaveRequestVM>(data);
+                leaveRequest.ApprovedStatus = (EnumEmployeeLeaveRequestStatus)data.Approved;
+                leaveRequest.ApprovedText = EnumExtentsion<EnumEmployeeLeaveRequestStatus>.GetDisplayValue((EnumEmployeeLeaveRequestStatus)data.Approved);
+                return new Result<EmployeeLeaveRequestVM>(true, ResultConstant.RecordFound, leaveRequest);
+            }
+
+            else
+            {
+                return new Result<EmployeeLeaveRequestVM>(false, ResultConstant.RecordNotFound);
+            }
+
+
+        }
+
+        public Result<List<EmployeeLeaveRequestVM>> GetAllLeaveRequestByUserId(string userId)
+        {
+            var data = _uow.employeeLeaveRequest.GetAll(
+                u => u.RequestingEmployeeId == userId
+                && u.Cancelled == false,
+                includeProperties: "RequestingEmployee,EmployeeLeaveType").ToList();
+
+            if (data != null)
+            {
+                List<EmployeeLeaveRequestVM> returnData = new List<EmployeeLeaveRequestVM>();
                 foreach (var item in data)
                 {
-                    result.Add(new EmployeeLeaveRequestVM()
+                    returnData.Add(new EmployeeLeaveRequestVM()
                     {
                         Id = item.Id,
                         ApprovedStatus = (EnumEmployeeLeaveRequestStatus)item.Approved,
                         ApprovedText = EnumExtentsion<EnumEmployeeLeaveRequestStatus>.GetDisplayValue((EnumEmployeeLeaveRequestStatus)item.Approved),
-                        Cancelled = item.Cancelled,
                         ApprovedEmployeeId = item.ApprovedEmployeeId,
+                        Cancelled = item.Cancelled,
                         DateRequested = item.DateRequested,
                         EmployeeLeaveTypeId = item.EmployeeLeaveTypeId,
                         LeaveTypeText = item.EmployeeLeaveType.Name,
-                        EndDate=item.EndDate,
-                        StartDate=item.StartDate,
-                        RequestComments= item.RequestComments,
-                        RequestingEmployeeId=item.RequestingEmployeeId
+                        EndDate = item.EndDate,
+                        StartDate = item.StartDate,
+                        RequestComments = item.RequestComments,
+                        RequestingEmployeeId = item.RequestingEmployeeId
                     });
                 }
-                return new Result<List<EmployeeLeaveRequestVM>>(true, ResultConstant.RecordFound, result);
+                return new Result<List<EmployeeLeaveRequestVM>>(true, ResultConstant.RecordFound, returnData);
             }
             else
                 return new Result<List<EmployeeLeaveRequestVM>>(false, ResultConstant.RecordNotFound);
+
+        }
+
+        public Result<EmployeeLeaveRequestVM> RemoveEmployeeLeaveRequest(int id)
+        {
+            var data = _uow.employeeLeaveRequest.Get(id);
+            if (data != null)
+            {
+                data.Cancelled = true;
+                _uow.employeeLeaveRequest.Update(data);
+                _uow.Save();
+                return new Result<EmployeeLeaveRequestVM>(true, ResultConstant.DeleteOk);
+
+            }
+
+            else
+                return new Result<EmployeeLeaveRequestVM>(false, ResultConstant.DeleteNotOk);
         }
     }
 }

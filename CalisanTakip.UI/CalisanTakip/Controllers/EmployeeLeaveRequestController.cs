@@ -47,27 +47,59 @@ namespace CalisanTakip.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Create(EmployeeLeaveRequestVM model)
+        public IActionResult Create(EmployeeLeaveRequestVM model, int? id)
         {
-                var user = JsonConvert.DeserializeObject<SessionContext>(HttpContext.Session.GetString(ResultConstant.LoginUserInfo));
-                if (model.Id > 0)
-                {
-                    //var data = _employeeLeaveRequestBusinessEngine.EditEmployeeLeaveRequest(model);
-                }
-                else
-                {
-                    var data = _employeeLeaveRequestBusinessEngine.CreateEmployeeLeaveRequest(model, user);
+            var user = JsonConvert.DeserializeObject<SessionContext>(HttpContext.Session.GetString(ResultConstant.LoginUserInfo));
+            if (id > 0)
+            {
+                var data = _employeeLeaveRequestBusinessEngine.EditEmployeeLeaveRequest(model, user);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                var data = _employeeLeaveRequestBusinessEngine.CreateEmployeeLeaveRequest(model, user);
 
-                    if (data.IsSuccess)
-                    {
-                        return RedirectToAction("Index");
-                    }
-
-                    return View(model);
+                if (data.IsSuccess)
+                {
+                    return RedirectToAction("Index");
                 }
 
+                return View(model);
+            }
+        }
 
-            return View(model);
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            ViewBag.EmployeeLeaveTypes = _employeeLeaveTypeBusinessEngine.GetAllEmployeeLeaveType().Data;
+            if (id > 0)
+            {
+                var data = _employeeLeaveRequestBusinessEngine.GetAllLeaveRequestById((int)id);
+                return View(data.Data);
+            }
+            else
+                return View();
+        }
+
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            if (id <= 0)
+                return Json(new { success = false, message = "Silmek için bir kayıt seçiniz" });
+
+            var data = _employeeLeaveRequestBusinessEngine.RemoveEmployeeLeaveRequest(id);
+            if (data.IsSuccess)
+            {
+                return Json(new { success = data.IsSuccess, message = data.Message });
+
+            }
+            else
+            {
+                return Json(new { success = data.IsSuccess, message = data.Message });
+            }
+
+
         }
     }
 }
