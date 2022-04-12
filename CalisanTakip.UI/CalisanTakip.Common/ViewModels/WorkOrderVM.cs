@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalisanTakip.Common.ConstantsModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,9 +14,13 @@ namespace CalisanTakip.Common.ViewModels
         public string AssignEmployeeId { get; set; }
         [MaxLength(750)]
         public string WorkOrderDescription { get; set; }
-        public int WorkOrderStatus { get; set; }
+        public EnumWorkOrderStatus WorkOrderStatus { get; set; }
+
+        public string WorkOrderStatusText { get; set; }
         public double WorkOrderPoint { get; set; }
         [MaxLength(50)]
+
+        public string AssignEmployeeName { get; set; }
         public string WorkOrderNumber { get; set; }
 
         [ForeignKey("AssignEmployeeId")]

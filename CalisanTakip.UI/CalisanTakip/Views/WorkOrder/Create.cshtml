@@ -1,0 +1,55 @@
+﻿@model CalisanTakip.Common.ViewModels.WorkOrderVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <br /><br />
+    <form class="form-horizontal" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" asp-for="WorkOrderDescription" for="form-field-1">İzin Tipi</label>
+
+            <div class="col-sm-9">
+                <input type="text" asp-for="WorkOrderDescription" id="form-field-1" placeholder="İş Emri Açıklama" class="col-xs-10 col-sm-5" />
+                <span asp-validation-for="WorkOrderDescription"></span>
+            </div>
+        </div>
+        <div class="form-group text-center">
+           <div class="input-group mb-3 col-sm-3 ">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">İş Emri Puanı</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01" asp-for="WorkOrderPoint">
+                    <option selected>Puan Seçimi</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+           </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label no-padding-right" asp-for="CreateDate" for="form-field-1">Sabit Gün Sayısıs</label>
+
+            <div class="col-sm-9">
+                <input type="number" min="0" max="15" asp-for="CreateDate" id="form-field-1" placeholder="Sabit Gün Sayısı" class="col-xs-10 col-sm-5" />
+                <span asp-validation-for="CreateDate"></span>
+            </div>
+        </div>
+        <div class="clearfix form-actions">
+            <div class="col-md-offset-3 col-md-9">
+                @*  <button class="btn btn-info" type="button">
+                    <i class="ace-icon fa fa-check bigger-110"></i>
+                    Submit
+                    </button>*@
+                <input type="submit" value="Create" class="btn btn-info col-xs-3" />
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+

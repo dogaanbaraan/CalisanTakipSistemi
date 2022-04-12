@@ -43,6 +43,7 @@ namespace CalisanTakip
             services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
             services.AddScoped<IEmployeeLeaveRequestBusinessEngine, EmployeeLeaveRequestBusinessEngine>();
             services.AddScoped<IEmployeeLeaveAssignBusinessEngine, EmployeeLeaveAssignBusinessEngine>();
+            services.AddScoped<IWorkOrderBusinessEngine, WorkOrderBusinessEngine>();    
             services.AddDefaultIdentity<Employee>().AddRoles<IdentityRole>().AddEntityFrameworkStores<CalisanTakipContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); 
             services.AddRazorPages();

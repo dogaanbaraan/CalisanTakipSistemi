@@ -483,3 +483,5 @@ C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\EmployeeLeaveRequest\Create.cshtml.g.cs
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\EmployeeLeaveRequest\Edit.cshtml.g.cs
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\EmployeeLeaveAssign\Index.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\WorkOrder\Index.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\WorkOrder\Create.cshtml.g.cs
