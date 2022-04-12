@@ -10,6 +10,8 @@ namespace CalisanTakip.DataAccess.Contracts
         IEmployeeLeaveRequestRepository employeeLeaveRequest { get; }
         IEmployeeLeaveTypeRepository employeeLeaveType { get;}
         IEmployeeRepository employeeRepository { get; }
+
+        IWorkOrderRepository workOrderRepository { get; }
         void Save();
     }
 }

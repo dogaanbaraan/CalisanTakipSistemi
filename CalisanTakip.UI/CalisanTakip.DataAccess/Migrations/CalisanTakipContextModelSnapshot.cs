@@ -119,6 +119,43 @@ namespace CalisanTakip.DataAccess.Migrations
                     b.ToTable("EmployeeLeaveTypes");
                 });
 
+            modelBuilder.Entity("CalisanTakip.DataAccess.DbModels.WorkOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AssignEmployeeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("WorkOrderDescription")
+                        .HasColumnType("nvarchar(750)")
+                        .HasMaxLength(750);
+
+                    b.Property<string>("WorkOrderNumber")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<double>("WorkOrderPoint")
+                        .HasColumnType("float");
+
+                    b.Property<int>("WorkOrderStatus")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AssignEmployeeId");
+
+                    b.ToTable("WorkOrders");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -372,6 +409,13 @@ namespace CalisanTakip.DataAccess.Migrations
                     b.HasOne("CalisanTakip.DataAccess.DbModels.Employee", "RequestingEmployee")
                         .WithMany()
                         .HasForeignKey("RequestingEmployeeId");
+                });
+
+            modelBuilder.Entity("CalisanTakip.DataAccess.DbModels.WorkOrder", b =>
+                {
+                    b.HasOne("CalisanTakip.DataAccess.DbModels.Employee", "AssignEmployee")
+                        .WithMany()
+                        .HasForeignKey("AssignEmployeeId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

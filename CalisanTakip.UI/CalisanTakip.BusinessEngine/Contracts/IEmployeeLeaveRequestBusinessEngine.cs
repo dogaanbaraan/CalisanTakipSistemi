@@ -17,5 +17,9 @@ namespace CalisanTakip.BusinessEngine.Contracts
         Result<EmployeeLeaveRequestVM> GetAllLeaveRequestById(int id);
 
         Result<EmployeeLeaveRequestVM> RemoveEmployeeLeaveRequest(int id);
+
+        Result<List<EmployeeLeaveRequestVM>> GetSendApprovedRequests();
+
+        Result<bool> RejectEmployeeLeaveRequest (int id);
     }
 }

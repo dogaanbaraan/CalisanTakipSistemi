@@ -101,5 +101,16 @@ namespace CalisanTakip.Controllers
 
 
         }
+
+        public ActionResult Rejected(int id)
+        {
+            if(id>0)
+            {
+                var data = _employeeLeaveRequestBusinessEngine.RejectEmployeeLeaveRequest(id);
+                return RedirectToAction("Index");
+            }
+
+            return View();
+        }
     }
 }

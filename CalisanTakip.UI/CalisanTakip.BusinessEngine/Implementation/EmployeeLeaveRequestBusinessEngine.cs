@@ -131,6 +131,67 @@ namespace CalisanTakip.BusinessEngine.Implementation
 
         }
 
+        public Result<List<EmployeeLeaveRequestVM>> GetSendApprovedRequests()
+        {
+            var data = _uow.employeeLeaveRequest.GetAll(
+                u => u.Approved == (int)EnumEmployeeLeaveRequestStatus.Send_Approved
+                && u.Cancelled == false,
+                includeProperties: "RequestingEmployee,EmployeeLeaveType").ToList();
+
+            if (data != null)
+            {
+                List<EmployeeLeaveRequestVM> returnData = new List<EmployeeLeaveRequestVM>();
+                foreach (var item in data)
+                {
+                    returnData.Add(new EmployeeLeaveRequestVM()
+                    {
+                        Id = item.Id,
+                        ApprovedStatus = (EnumEmployeeLeaveRequestStatus)item.Approved,
+                        ApprovedText = EnumExtentsion<EnumEmployeeLeaveRequestStatus>.GetDisplayValue((EnumEmployeeLeaveRequestStatus)item.Approved),
+                        ApprovedEmployeeId = item.ApprovedEmployeeId,
+                        Cancelled = item.Cancelled,
+                        DateRequested = item.DateRequested,
+                        EmployeeLeaveTypeId = item.EmployeeLeaveTypeId,
+                        LeaveTypeText = item.EmployeeLeaveType.Name,
+                        EndDate = item.EndDate,
+                        StartDate = item.StartDate,
+                        RequestComments = item.RequestComments,
+                        RequestingEmployeeId = item.RequestingEmployeeId,
+                        RequestEmployeeName = item.RequestingEmployee.Email
+                    });
+                }
+                return new Result<List<EmployeeLeaveRequestVM>>(true, ResultConstant.RecordFound, returnData);
+            }
+            else
+                return new Result<List<EmployeeLeaveRequestVM>>(false, ResultConstant.RecordNotFound);
+        }
+
+        public Result<bool> RejectEmployeeLeaveRequest(int id)
+        {
+            var data = _uow.employeeLeaveRequest.Get(id);
+
+            if (data != null)
+            {
+                try
+                {
+                    data.Approved = (int)EnumEmployeeLeaveRequestStatus.Rejected;
+                    _uow.employeeLeaveRequest.Update(data);
+                    _uow.Save();
+
+                    return new Result<bool>(true, ResultConstant.RecordFound);
+                }
+                catch (Exception ex)
+                {
+
+                    return new Result<bool>(false, ResultConstant.RecordNotFound + "=>" + ex.Message.ToString());
+                }
+
+            }
+
+            else
+                return new Result<bool>(false, ResultConstant.RecordNotFound);
+        }
+
         public Result<EmployeeLeaveRequestVM> RemoveEmployeeLeaveRequest(int id)
         {
             var data = _uow.employeeLeaveRequest.Get(id);

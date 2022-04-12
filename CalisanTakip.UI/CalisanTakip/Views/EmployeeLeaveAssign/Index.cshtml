@@ -1,0 +1,111 @@
+﻿@using CalisanTakip.Common.ConstantsModel
+@model IEnumerable<CalisanTakip.Common.ViewModels.EmployeeLeaveRequestVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-content">
+    <div class="page-header">
+        <h2>Çalışan İzin Talep Listesi</h2>
+    </div><!-- /.page-header -->
+    <br />
+    <div class="col-6 text-left text-white">
+        <a class="btn btn-success" asp-controller="EmployeeLeaveRequest" asp-action="Create">Talep Ekle</a>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <table id="simple-table" class="table  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Talep Eden Çalışan</th>
+                                <th>Başlangıç Tarihi</th>
+                                <th>Bitiş Tarihi</th>
+                                <th>Sebep</th>
+                                <th>Durum</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.RequestEmployeeName</td>
+                                    <td>@item.StartDate.ToShortDateString()</td>
+                                    <td>@item.EndDate.ToShortDateString()</td>
+                                    <td>@item.LeaveTypeText</td>
+                                    @*                            @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Send_Approved)
+                                        {
+                                        <td style="color:blue">@item.ApprovedText</td>
+                                        }
+                                        @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Approved)
+                                        {
+                                        <td style="color:green">@item.ApprovedText</td>
+                                        }*@
+                                    @*        @if (item.ApprovedStatus == EnumEmployeeLeaveRequestStatus.Send_Approved)
+                                        {
+
+                                        }*@
+                                    @if (item.ApprovedStatus != EnumEmployeeLeaveRequestStatus.Approved)
+                                    {
+                                        <td>
+                                            <div class="hidden-sm hidden-xs btn-group">
+                                                <a class="btn btn-success" id="btnRequestAssign" data-id="@item.Id">Onayla </a>
+                                                @*  <button class="btn btn-xs btn-danger">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                    </button>*@
+                                                <a asp-controller="EmployeeLeaveRequest" asp-route-id="@item.Id" asp-action="Rejected" class="btn btn-danger" onclick="removeItem(@item.Id)" data-id="@item.Id">
+                                                    Reddet
+                                                </a>
+
+                                            </div>
+                                        </td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div><!-- /.span -->
+            </div><!-- /.row -->
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnRequestAssign").on("click", function () {
+            var id = $("#btnRequestAssign").data("id");
+            swal({
+                title: 'Onaylamak İstediğinize Emin Misiniz?',
+                text: 'Onaylanan Data Geri Alınamaz!',
+                icon: 'info',
+                buttons: true,
+                dangerMode: true
+            }).then((willEditing) => {
+                if (willEditing) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/EmployeeLeaveAssign/Approved/" + id,
+                        success: function (data) {
+                            if (data.success) {
+                                toastr.success(data.message);
+                                location.reload();
+                            } else {
+                                toastr.error(data.message);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+}
+

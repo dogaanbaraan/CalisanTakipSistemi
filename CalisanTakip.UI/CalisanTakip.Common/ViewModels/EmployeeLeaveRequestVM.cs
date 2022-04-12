@@ -14,6 +14,7 @@ namespace CalisanTakip.Common.ViewModels
         public EmployeeLeaveTypeVM EmployeeLeaveType { get; set; }
 
         public string ApprovedEmployeeId { get; set; }
+        public string RequestEmployeeName { get; set; }
 
         public EmployeeVM ApprovedEmployee { get; set; }
 
