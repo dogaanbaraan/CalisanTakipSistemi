@@ -9,5 +9,9 @@ namespace CalisanTakip.BusinessEngine.Contracts
     public interface IWorkOrderBusinessEngine
     {
         Result<List<WorkOrderVM>> GetAllWorkOrders();
+        Result<WorkOrderVM> CreateWorkOrder(WorkOrderVM model);
+        Result<WorkOrderVM> GetWorkOrder(int id);
+        Result<WorkOrderVM> EditWorkOrder(WorkOrderVM model);
+        Result<bool> RemoveWorkOrder(int id);
     }
 }

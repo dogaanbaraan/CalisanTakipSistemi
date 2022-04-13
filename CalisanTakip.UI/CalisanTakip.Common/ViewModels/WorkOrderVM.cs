@@ -17,6 +17,8 @@ namespace CalisanTakip.Common.ViewModels
         public EnumWorkOrderStatus WorkOrderStatus { get; set; }
 
         public string WorkOrderStatusText { get; set; }
+
+        [Required]
         public double WorkOrderPoint { get; set; }
         [MaxLength(50)]
 

@@ -24,6 +24,7 @@
                             <tr>
                                 <th>İş Emri Numarası</th>
                                 <th>Oluşturulma Tarihi</th>
+                                <th>İş Emri Durumu</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                             @item.WorkOrderNumber
                                         </td>
                                         <td>@item.CreateDate.ToShortDateString()</td>
+                                        <td>@item.WorkOrderStatusText</td>
                                         <td>
                                             <div class="hidden-sm hidden-xs btn-group">
                                                 <a class="btn btn-xs btn-info" asp-controller="WorkOrder" asp-route-id="@item.Id" asp-action="Edit">
@@ -88,5 +90,37 @@ class="btn btn-info @nextDisabled"> Sonraki Sayfa
 </a>
 
 @section Scripts{
+    <script type="text/javascript">
+    function removeItem(rowId){
+        swal({
+            title:'Silmek istediğinize emin misiniz?',
+            text:'Silinen veri geri alınamaz',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true
+        }).then((willDelete) =>{
+            if(willDelete){
+            $.ajax({
+                type:"DELETE",
+                url:"/WorkOrder/Delete/" + rowId,
+                success : function(data){
+                    if(data.success){
+                        toastr.success(data.message);
+                        
+                    }else{
+                        toastr.error(data.message);
+                    }
+                    location.reload();
+            }
+            });
+         }
+        });
+    }
+
+     //$(document).ready(function (){
+    //$("#btnRemove").on("click", function () {
+    //    var id = $("#btnRemove").data("id");
+
+</script>
 <partial name="_ValidationScriptsPartial" />
 }

@@ -41,14 +41,15 @@
             </div>
         </div>
 
-        <div class="row form-group">
-            <label class="col-sm-3 control-label no-padding-right" asp-for="RequestComments" for="form-field-1">Açıklama</label>
-            <div class="col-sm-4">
-                <div class="input-group">
-                    <textarea asp-for="RequestComments" class="form-control limited" maxlength="50"></textarea>
-                </div>
+     <div class="row form-group">
+        <label class="col-sm-3 control-label no-padding-right" asp-for="RequestComments">İzin Talep Açıklama</label>
+
+        <div class="col-sm-4">
+            <div class="input-group ">
+                <textarea class="form-control limited" asp-for="RequestComments" maxlength="250"></textarea>
             </div>
         </div>
+    </div>
 
         <div class="clearfix form-actions">
             <div class="col-md-offset-3 col-md-9">
@@ -64,14 +65,20 @@
 </div>
 
 @section Scripts{
-<partial name="_ValidationScriptsPartial" />
-<script type="text/javascript">
-    $(function () {
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.date-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            });
+            $('textarea.limited').inputlimiter({
+                remText: '%n character%s remaining...',
+                limitText: 'max allowed : %n.'
+            });
         });
-    });
-</script>
+    </script>
 }
+
 
