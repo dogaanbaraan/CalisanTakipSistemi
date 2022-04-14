@@ -14,6 +14,7 @@ namespace CalisanTakip.DataAccess.DbModels
         [MaxLength(750)]
         public string WorkOrderDescription { get; set; }
         public int WorkOrderStatus { get; set; }
+        public string PhotoPath { get; set; }
         public double WorkOrderPoint { get; set; }
         [MaxLength(50)]
         public string WorkOrderNumber { get; set; }

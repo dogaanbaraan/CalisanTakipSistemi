@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var imagePath = "~/CustomImage/" + Model.PhotoPathText;
 }
 <br />
 <br />
@@ -43,6 +44,9 @@
                 <option asp-for="WorkOrderStatus" data-tokens="frosting">Kapatıldı</option>
             </select>
 
+        </div>
+        <div>
+            <img class="card-img-top" style="width:100p; height:100px;" src="@imagePath" asp-append-version="true" />
         </div>
     </div>
 

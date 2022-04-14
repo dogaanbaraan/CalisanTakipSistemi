@@ -24,7 +24,7 @@ namespace CalisanTakip.BusinessEngine.Implementation
             _map = map;
         }
 
-        public Result<WorkOrderVM> CreateWorkOrder(WorkOrderVM model)
+        public Result<WorkOrderVM> CreateWorkOrder(WorkOrderVM model, string uniqueFileName)
         {
             if (model != null)
             {
@@ -36,6 +36,7 @@ namespace CalisanTakip.BusinessEngine.Implementation
                     wOrder.WorkOrderNumber = DateTime.Now.ToString();
                     wOrder.WorkOrderPoint = model.WorkOrderPoint;
                     wOrder.WorkOrderStatus = (int)EnumWorkOrderStatus.WorkOrder_Created;
+                    wOrder.PhotoPath = uniqueFileName;
 
                     _uow.workOrderRepository.Add(wOrder);
                     _uow.Save();
@@ -65,7 +66,7 @@ namespace CalisanTakip.BusinessEngine.Implementation
                     data.ModifiedDate = DateTime.Now;
                     data.WorkOrderDescription = editModel.WorkOrderDescription;
                     data.WorkOrderPoint = editModel.WorkOrderPoint;
-                    data.WorkOrderStatus = (int)editModel.WorkOrderStatus != 0 ? 2:1 ;
+                    data.WorkOrderStatus = (int)editModel.WorkOrderStatus == 0 ? 1:2;
                     data.AssignEmployeeId = editModel.AssignEmployeeId;
                     _uow.workOrderRepository.Update(data);
                     _uow.Save();
@@ -126,6 +127,7 @@ namespace CalisanTakip.BusinessEngine.Implementation
                     wOrder.WorkOrderPoint = workOrder.WorkOrderPoint;
                     wOrder.WorkOrderStatus = (EnumWorkOrderStatus)workOrder.WorkOrderStatus;
                     wOrder.WorkOrderStatusText = EnumExtentsion<EnumWorkOrderStatus>.GetDisplayValue((EnumWorkOrderStatus)workOrder.WorkOrderStatus);
+                    wOrder.PhotoPathText = workOrder.PhotoPath;
                     return new Result<WorkOrderVM>(true, ResultConstant.UpdateOk, wOrder);
                 }
 

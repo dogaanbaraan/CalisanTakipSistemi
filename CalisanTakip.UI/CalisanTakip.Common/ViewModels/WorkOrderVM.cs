@@ -1,4 +1,5 @@
 ﻿using CalisanTakip.Common.ConstantsModel;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,9 @@ namespace CalisanTakip.Common.ViewModels
         public EnumWorkOrderStatus WorkOrderStatus { get; set; }
 
         public string WorkOrderStatusText { get; set; }
+
+        public string PhotoPathText { get; set; }
+        public IFormFile PhotoPath { get; set; }
 
         [Required]
         public double WorkOrderPoint { get; set; }

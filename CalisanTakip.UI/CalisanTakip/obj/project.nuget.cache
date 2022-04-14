@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XAr/o5p3V34wislcQO99RTa8K2sNfCprnPou9REvjjWnGk4wXG5G51kJi+1U9GOdC0z4VsHbG7T4qyGUqTjfkw==",
+  "dgSpecHash": "KWcObKSMbFyT17XBs02V/8vSlAcbugeBIHqpBu2KgedUtCCUKVHznJz1xJSy2DnZFAKQCDyfZp79FihtS5FJJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\baran.dogan\\Desktop\\Çalışmalarım\\Projeler\\CalisanTakip\\CalisanTakip.UI\\CalisanTakip\\CalisanTakip.csproj",
   "expectedPackageFiles": [
@@ -14,7 +14,7 @@
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.hosting.server.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.16\\microsoft.aspnetcore.http.features.5.0.16.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.23\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.23.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.23\\microsoft.aspnetcore.identity.ui.3.1.23.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.22\\microsoft.aspnetcore.mvc.razor.extensions.3.1.22.nupkg.sha512",
@@ -130,6 +130,7 @@
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\baran.dogan\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\baran.dogan\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
