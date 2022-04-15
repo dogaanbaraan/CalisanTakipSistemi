@@ -25,5 +25,7 @@ namespace CalisanTakip.Common.ConstantsModel
         public const string Admin_Password = "Barno.123";
 
         public const string LoginUserInfo = "Giriş yapan kullanıcı bilgisi";
+
+        public const string MailTagHelperSuffeix = "@gmail.com";
     }
 }

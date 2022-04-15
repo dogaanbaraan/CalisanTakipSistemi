@@ -11,6 +11,7 @@
     </div><!-- /.page-header -->
     <br />
     <div class="col-6 text-left text-white">
+        <button class="btn btn-success"> <My-Email mail-to="baran.dogan19007">Mail Gönder</My-Email> </button>
         <a class="btn btn-success" asp-controller="EmployeeLeaveType" asp-action="Create"> Tip Ekle</a>
     </div>
     <br />
@@ -39,7 +40,7 @@
                                     <td>@item.DateCreated</td>
                                     <td>
                                         <div class="hidden-sm hidden-xs btn-group">
-                                            <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveType" asp-route-id="@item.Id" asp-action="Edit" >
+                                            <a class="btn btn-xs btn-info" asp-controller="EmployeeLeaveType" asp-route-id="@item.Id" asp-action="Edit">
                                                 <i class="ace-icon fa fa-pencil bigger-120"></i>
                                             </a>
 
@@ -83,7 +84,7 @@
                 success : function(data){
                     if(data.success){
                         toastr.success(data.message);
-                        
+
                     }else{
                         toastr.error(data.message);
                     }

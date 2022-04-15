@@ -486,3 +486,10 @@ C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\WorkOrder\Edit.cshtml.g.cs
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\UserName\Default.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\Employee\Index.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\AssignWorkOrder\Default.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\ClosedWorkOrder\Default.cshtml.g.cs
+C:\Users\baran.dogan\Desktop\Çalışmalarım\Projeler\CalisanTakip\CalisanTakip.UI\CalisanTakip\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\UndertakeWorkOrder\Default.cshtml.g.cs

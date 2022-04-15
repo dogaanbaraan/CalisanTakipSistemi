@@ -1,6 +1,7 @@
 using CalisanTakip.BusinessEngine.Contracts;
 using CalisanTakip.BusinessEngine.Implementation;
 using CalisanTakip.Common.ConstantsModel;
+using CalisanTakip.Common.EmailOperationModels;
 using CalisanTakip.Common.Mappings;
 using CalisanTakip.DataAccess.Contracts;
 using CalisanTakip.DataAccess.DbContext;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +37,9 @@ namespace CalisanTakip
         {
             services.AddRazorPages();
             services.AddDbContext<CalisanTakipContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<EmailOptions>(Configuration);
+            //************************************************//
             services.AddAutoMapper(typeof(Mapper));
             //services.AddScoped<IEmployeeLeaveAllocation, EmployeeLeaveAllocationRepository>();
             //services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();

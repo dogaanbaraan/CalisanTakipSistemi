@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int pageNumber = ViewBag.PageNumber;
+}
+
+
+<br />
+<div>
+    <div class="page-header">
+           <h2> İş Emirleri Listesi</h2>
+    </div>
+
+    @await Component.InvokeAsync("AssignWorkOrder", pageNumber)
+
+    @await Component.InvokeAsync("UndertakeWorkOrder", pageNumber)
+
+    @await Component.InvokeAsync("ClosedWorkOrder", pageNumber)
+
+</div>

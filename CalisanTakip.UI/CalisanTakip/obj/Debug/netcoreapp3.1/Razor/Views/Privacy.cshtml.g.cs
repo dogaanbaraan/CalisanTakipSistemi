@@ -20,7 +20,7 @@ using CalisanTakip;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a0906750319c55d6ce48b545e707c28c2eb4094c", @"/Views/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a619d2fc190c56c6d6b26a59630a5d982188cfcc", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c63abfd4e21c28647929c82247392ed7d5282e55", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Privacy : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     #nullable disable
